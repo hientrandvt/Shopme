@@ -8,6 +8,7 @@ import com.demo.shopme.domain.model.product.ProductEntity
  */
 fun Mapper.Companion.mapToEntity(productData: ProductData): ProductEntity {
     return ProductEntity(
+        productId = productData.id ?: 0,
         name = productData.name ?: "",
         price = productData.price ?: 0,
         content = productData.content ?: "",

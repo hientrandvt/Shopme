@@ -4,6 +4,7 @@ import com.demo.shopme.data.api.ApiProductService
 import com.demo.shopme.data.repositories.dataSourceImpl.ProductRepositoryImpl
 import com.demo.shopme.domain.repositories.ProductRepository
 import com.demo.shopme.domain.usecases.ProductUseCases
+import com.demo.shopme.domain.usecases.product.GetProductDetail
 import com.demo.shopme.domain.usecases.product.GetProductList
 import dagger.Module
 import dagger.Provides
@@ -30,6 +31,9 @@ object ProductModule {
     fun provideProductUseCases(
         repository: ProductRepository,
     ): ProductUseCases {
-        return ProductUseCases(getProductList = GetProductList(repository))
+        return ProductUseCases(
+            getProductList = GetProductList(repository),
+            getProductDetail = GetProductDetail(repository)
+        )
     }
 }

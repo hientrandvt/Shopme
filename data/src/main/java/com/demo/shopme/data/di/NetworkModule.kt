@@ -2,13 +2,14 @@ package com.demo.shopme.data.di
 
 import com.demo.shopme.data.api.ApiProductService
 import com.demo.shopme.data.interceptor.MockDataInterceptor
+import com.demo.shopme.data.network.BaseUrlProvider
+import com.demo.shopme.data.network.DebugModeProvider
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -25,19 +26,24 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideBaseUrl(): String {
-        return "https://shopme.com/api/"
+    fun provideBaseUrl(baseUrlProvider: BaseUrlProvider): String {
+        return baseUrlProvider.getBaseUrl()
     }
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient {
+    fun provideOkHttpClient(debugModeProvider: DebugModeProvider): OkHttpClient {
         return OkHttpClient.Builder().apply {
             connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
             writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
             readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
-            retryOnConnectionFailure(true)
-
+            retryOnConnectionFailure(false)
+            if (debugModeProvider.isDebug()) {
+                val logging = HttpLoggingInterceptor().apply {
+                    setLevel(HttpLoggingInterceptor.Level.BODY)
+                }
+                addInterceptor(logging)
+            }
             addInterceptor(MockDataInterceptor())
         }.build()
     }
@@ -57,10 +63,4 @@ object NetworkModule {
     fun provideApiProductService(retrofit: Retrofit): ApiProductService {
         return retrofit.create(ApiProductService::class.java)
     }
-
-    @Provides
-    fun provideCoroutineDispatcher(): CoroutineDispatcher {
-        return Dispatchers.IO
-    }
-
 }

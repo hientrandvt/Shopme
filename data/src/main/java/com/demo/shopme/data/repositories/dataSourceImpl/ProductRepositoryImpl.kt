@@ -12,7 +12,6 @@ import javax.inject.Inject
 /**
  * Created by Tran The Hien on 27,September,2024
  */
-//@Inject
 class ProductRepositoryImpl @Inject constructor(private val apiService: ApiProductService) :
     ProductRepository {
     override suspend fun getProductList(): Resource<List<ProductEntity>> {
@@ -27,6 +26,16 @@ class ProductRepositoryImpl @Inject constructor(private val apiService: ApiProdu
                 productData
             )
         } ?: listOf()
+        return Resource.Success(entities)
+    }
+
+    override suspend fun getProductDetail(productId: Int): Resource<ProductEntity?> {
+        val response = apiService.getProductDetail(productId)
+        val result = Utils.handleResponse(response)
+        if (result is Resource.Error) {
+            return Resource.Error(result.code, result.message)
+        }
+        val entities = result.data?.let { Mapper.mapToEntity(it) }
         return Resource.Success(entities)
     }
 }

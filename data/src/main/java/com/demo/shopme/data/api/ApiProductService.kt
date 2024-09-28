@@ -5,6 +5,7 @@ import com.demo.shopme.data.entities.product.ProductData
 import com.demo.shopme.data.entities.product.ProductList
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 /**
  * Created by Tran The Hien on 27,September,2024
@@ -12,4 +13,7 @@ import retrofit2.http.GET
 interface ApiProductService {
     @GET("products")
     suspend fun getProducts(): Response<BaseResponse<ProductList?>>
+
+    @GET("products/{productId}")
+    suspend fun getProductDetail(@Path("productId") productId: Int): Response<BaseResponse<ProductData?>>
 }

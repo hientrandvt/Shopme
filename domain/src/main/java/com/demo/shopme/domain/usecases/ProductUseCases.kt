@@ -1,5 +1,6 @@
 package com.demo.shopme.domain.usecases
 
+import com.demo.shopme.domain.usecases.product.GetProductDetail
 import com.demo.shopme.domain.usecases.product.GetProductList
 
 /**
@@ -7,4 +8,5 @@ import com.demo.shopme.domain.usecases.product.GetProductList
  */
 data class ProductUseCases(
     val getProductList: GetProductList,
+    val getProductDetail: GetProductDetail,
 )

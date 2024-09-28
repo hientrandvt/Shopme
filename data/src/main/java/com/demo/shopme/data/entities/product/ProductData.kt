@@ -6,6 +6,9 @@ import com.google.gson.annotations.SerializedName
  * Created by Tran The Hien on 27,September,2024
  */
 class ProductData(
+    @SerializedName("id")
+    var id: Int? = null,
+
     @SerializedName("name")
     var name: String? = null,
 

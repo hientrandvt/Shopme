@@ -8,4 +8,6 @@ import com.demo.shopme.domain.model.product.ProductEntity
  */
 interface ProductRepository {
     suspend fun getProductList(): Resource<List<ProductEntity>>
+
+    suspend fun getProductDetail(productId: Int): Resource<ProductEntity?>
 }
