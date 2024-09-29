@@ -22,28 +22,28 @@ class MockDataInterceptor : Interceptor {
                     "data": {
                         "items": [
                             {
-                                "id": 1,
+                                "product_id": 1,
                                 "name": "First Item",
                                 "price": 100,
                                 "content": "Some very very looong text to display as the product content blablabla",
                                 "status": "available"
                             },
                             {
-                                "id": 2,
+                                "product_id": 2,
                                 "name": "Second Item",
                                 "price": 150,
                                 "content": "Some very very looong text to display as the product content blablabla",
                                 "status": "out-of-stock"
                             },
                             {
-                                "id": 3,
+                                "product_id": 3,
                                 "name": "Third Item",
                                 "price": 190,
                                 "content": "Some very very looong text to display as the product content blablabla",
                                 "status": "coming-soon"
                             },
                             {
-                                "id": 4,
+                                "product_id": 4,
                                 "name": "Four Item",
                                 "price": 300,
                                 "content": "Some very very looong text to display as the product content blablabla",
@@ -60,7 +60,7 @@ class MockDataInterceptor : Interceptor {
                     "errorCode": "",
                     "errorMsg": "",
                     "data": {
-                        "id": 1,
+                        "product_id": 1,
                         "name": "First Item",
                         "price": 100,
                         "content": "Some very very looong text to display as the product content blablabla",
@@ -75,7 +75,7 @@ class MockDataInterceptor : Interceptor {
                     "errorCode": "",
                     "errorMsg": "",
                     "data": {
-                        "id": 2,
+                        "product_id": 2,
                         "name": "Second Item",
                         "price": 150,
                         "content": "Some very very looong text to display as the product content blablabla",
@@ -90,11 +90,11 @@ class MockDataInterceptor : Interceptor {
                     "errorCode": "",
                     "errorMsg": "",
                     "data": {
-                        "id": 3,
+                        "product_id": 3,
                         "name": "Third Item",
                         "price": 190,
                         "content": "Some very very looong text to display as the product content blablabla",
-                        "status": "comming-soon"
+                        "status": "coming-soon"
                     }
                 }
             """.trimIndent()
@@ -105,7 +105,7 @@ class MockDataInterceptor : Interceptor {
                     "errorCode": "",
                     "errorMsg": "",
                     "data": {
-                        "id": 4,
+                        "product_id": 4,
                         "name": "Four Item",
                         "price": 300,
                         "content": "Some very very looong text to display as the product content blablabla",

@@ -3,30 +3,25 @@ package com.demo.shopme.ui.home
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.demo.shopme.R
-import com.demo.shopme.ui.home.views.ProductItem
+import com.demo.shopme.ui.common.AppNavigationBar
+import com.demo.shopme.ui.home.views.CartButton
+import com.demo.shopme.ui.product.views.ProductItem
 import com.demo.shopme.utils.Constants
 
 /**
@@ -38,6 +33,10 @@ fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(), navController: NavHostController
 ) {
     val state = viewModel.state.value
+    LaunchedEffect(navController.currentBackStackEntry) {
+        viewModel.fetchProductsAndCartCount()
+    }
+
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         Box(
             modifier = Modifier
@@ -45,40 +44,21 @@ fun HomeScreen(
                 .padding(innerPadding)
         ) {
             Column {
-                TopAppBar(title = { Text("Product List") })
+                AppNavigationBar(title = "Product List", showBackButton = false)
                 LazyColumn {
                     items(state.productList) { product ->
                         ProductItem(product = product, onClick = {
-                            product.productId?.let {
-                                navController.navigate(
-                                    Constants.Screen.ProductDetail.createRoute(
-                                        it
-                                    )
+                            navController.navigate(
+                                Constants.Screen.ProductDetail.createRoute(
+                                    product.productId
                                 )
-                            }
+                            )
                         })
                     }
                 }
             }
 
-            IconButton(
-                onClick = {}, modifier = Modifier
-                    .align(Alignment.BottomEnd)
-                    .size(80.dp)
-            ) {
-                Surface(
-                    shape = CircleShape,
-                    color = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier
-                ) {
-                    Icon(
-                        imageVector = ImageVector.vectorResource(id = R.drawable.ic_cart),
-                        contentDescription = "",
-                        tint = Color.White,
-                        modifier = Modifier.padding(10.dp)
-                    )
-                }
-            }
+            CartButton(cartItemCount = state.cartItemCount, navController = navController)
 
         }
     }

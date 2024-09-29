@@ -5,4 +5,4 @@ import com.demo.shopme.domain.model.product.ProductEntity
 /**
  * Created by Tran The Hien on 28,September,2024
  */
-data class HomeState(val productList: List<ProductEntity> = listOf())
+data class HomeState(val productList: List<ProductEntity> = listOf(), val cartItemCount: Int = 0)

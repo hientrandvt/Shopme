@@ -8,8 +8,8 @@ import retrofit2.Response
 /**
  * Created by Tran The Hien on 27,September,2024
  */
-object Utils {
-    fun <T : Any> handleResponse(response: Response<BaseResponse<T?>>): Resource<T?> {
+object ApiResponseHandler {
+    fun <T : Any> processApiResponse(response: Response<BaseResponse<T?>>): Resource<T?> {
         return if (response.isSuccessful && response.body()!!.isSuccess()) {
             Resource.Success(data = response.body()!!.data)
         } else if (response.isSuccessful && response.body() != null) {

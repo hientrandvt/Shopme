@@ -10,6 +10,7 @@ buildscript {
             'hilt_navigation_compose': '1.2.0',
             'retrofit'               : '2.9.0',
             'okhttp'                 : '4.10.0',
+            'splashscreen'           : '1.0.1',
     ]
     repositories {
         google()

@@ -6,6 +6,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.demo.shopme.ui.cart.CartScreen
 import com.demo.shopme.ui.home.HomeScreen
 import com.demo.shopme.ui.product.detail.ProductDetailScreen
 import com.demo.shopme.utils.Constants
@@ -27,5 +28,6 @@ fun ShopmeNavGraph(navController: NavHostController) {
         ) {
             ProductDetailScreen(navController = navController)
         }
+        composable(Constants.Screen.Cart.route) { CartScreen(navController = navController) }
     }
 }

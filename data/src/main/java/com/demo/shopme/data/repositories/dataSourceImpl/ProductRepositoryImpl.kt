@@ -3,7 +3,7 @@ package com.demo.shopme.data.repositories.dataSourceImpl
 import com.demo.shopme.data.api.ApiProductService
 import com.demo.shopme.data.mappers.Mapper
 import com.demo.shopme.data.mappers.mapToEntity
-import com.demo.shopme.data.utils.Utils
+import com.demo.shopme.data.utils.ApiResponseHandler
 import com.demo.shopme.domain.common.Resource
 import com.demo.shopme.domain.model.product.ProductEntity
 import com.demo.shopme.domain.repositories.ProductRepository
@@ -16,7 +16,7 @@ class ProductRepositoryImpl @Inject constructor(private val apiService: ApiProdu
     ProductRepository {
     override suspend fun getProductList(): Resource<List<ProductEntity>> {
         val response = apiService.getProducts()
-        val result = Utils.handleResponse(response)
+        val result = ApiResponseHandler.processApiResponse(response)
         if (result is Resource.Error) {
             return Resource.Error(result.code, result.message)
         }
@@ -31,7 +31,7 @@ class ProductRepositoryImpl @Inject constructor(private val apiService: ApiProdu
 
     override suspend fun getProductDetail(productId: Int): Resource<ProductEntity?> {
         val response = apiService.getProductDetail(productId)
-        val result = Utils.handleResponse(response)
+        val result = ApiResponseHandler.processApiResponse(response)
         if (result is Resource.Error) {
             return Resource.Error(result.code, result.message)
         }
