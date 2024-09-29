@@ -49,11 +49,13 @@ fun HomeScreen(
                 LazyColumn {
                     items(state.productList) { product ->
                         ProductItem(product = product, onClick = {
-                            navController.navigate(
-                                Constants.Screen.ProductDetail.createRoute(
-                                    product.productId.toString()
+                            product.productId?.let {
+                                navController.navigate(
+                                    Constants.Screen.ProductDetail.createRoute(
+                                        it
+                                    )
                                 )
-                            )
+                            }
                         })
                     }
                 }

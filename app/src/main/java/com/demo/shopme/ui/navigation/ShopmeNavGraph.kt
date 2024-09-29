@@ -7,7 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.demo.shopme.ui.home.HomeScreen
-import com.demo.shopme.ui.product.ProductDetailScreen
+import com.demo.shopme.ui.product.detail.ProductDetailScreen
 import com.demo.shopme.utils.Constants
 
 /**
@@ -20,7 +20,7 @@ fun ShopmeNavGraph(navController: NavHostController) {
         composable(
             route = Constants.Screen.ProductDetail.route,
             arguments = listOf(
-                navArgument(Constants.Screen.ProductDetail.productId) {
+                navArgument(Constants.Screen.ProductDetail.productIdKey) {
                     type = NavType.StringType
                 },
             ),

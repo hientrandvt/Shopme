@@ -8,9 +8,10 @@ class Constants {
     sealed class Screen(val route: String) {
         object Home : Screen("Home")
 
-        object ProductDetail : Screen("products/{productId}") {
-            const val productId = "productId"
-            fun createRoute(productId: String) = route.replace("{${productId}}", productId)
+        object ProductDetail : Screen("productDetail/{productId}") {
+            const val productIdKey = "productId"
+            fun createRoute(productId: Int) =
+                route.replace("{${productIdKey}}", productId.toString())
         }
     }
 }
