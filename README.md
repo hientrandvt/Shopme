@@ -20,7 +20,7 @@
     * Data Layer: Data retrieval and storage
 
 ## 4. Dependency Injection
-* The presence of di directories suggests the use of dependency injection, which decouples components and enhances testability.
+* The use of dependency injection, which decouples components and enhances testability.
 
 ## 5. Modularity
 * The project is modular, encapsulating features within separate modules (app, data, domain), promoting organization and scalability.
