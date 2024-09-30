@@ -45,9 +45,8 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
-//    androidTestImplementation libs.androidx.ui.test.junit4
-//    debugImplementation libs.androidx.ui.tooling
-//    debugImplementation libs.androidx.ui.test.manifest
+    testImplementation "org.mockito:mockito-core:${versions.mockito_core}"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.kotlinx_coroutines_test}"
 
     // Network dependencies
     implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"

@@ -1,6 +1,5 @@
 package com.demo.shopme.ui.home
 
-import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -30,7 +29,7 @@ class HomeViewModel @Inject constructor(
         getCartItemCount()
     }
 
-    private fun getProductList() {
+    fun getProductList() {
         viewModelScope.launch {
             val result = withContext(Dispatchers.IO) {
                 productUseCases.getProductList()
