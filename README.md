@@ -1,3 +1,6 @@
+![App Architecture](https://github.com/NileshJarad/SearchImage/raw/master/docs/app_architecture.png)
+<sub>Image taken from [NileshJarad's GitHub](https://github.com/NileshJarad)</sub>
+
 # Clean Architecture Structure for ShopMe Project
 ## 1. Layered Structure
 * Presentation Layer (app module)
