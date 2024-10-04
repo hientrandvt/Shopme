@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.demo.shopme.domain.model.product.ProductEntity
+import com.demo.shopme.domain.models.product.ProductEntity
 
 /**
  * Created by Tran The Hien on 28, September, 2024

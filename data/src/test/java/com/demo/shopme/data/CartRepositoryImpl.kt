@@ -8,7 +8,7 @@ import com.demo.shopme.data.entities.product.ProductData
 import com.demo.shopme.data.mappers.Mapper
 import com.demo.shopme.data.mappers.mapToData
 import com.demo.shopme.data.repositories.dataSourceImpl.CartRepositoryImpl
-import com.demo.shopme.domain.model.product.ProductEntity
+import com.demo.shopme.domain.models.product.ProductEntity
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Before

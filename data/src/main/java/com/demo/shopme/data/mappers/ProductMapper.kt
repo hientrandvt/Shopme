@@ -1,7 +1,7 @@
 package com.demo.shopme.data.mappers
 
 import com.demo.shopme.data.entities.product.ProductData
-import com.demo.shopme.domain.model.product.ProductEntity
+import com.demo.shopme.domain.models.product.ProductEntity
 
 /**
  * Created by Tran The Hien on 27,September,2024

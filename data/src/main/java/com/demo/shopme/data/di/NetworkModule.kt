@@ -43,8 +43,8 @@ object NetworkModule {
                     setLevel(HttpLoggingInterceptor.Level.BODY)
                 }
                 addInterceptor(logging)
+                addInterceptor(MockDataInterceptor())
             }
-            addInterceptor(MockDataInterceptor())
         }.build()
     }
 

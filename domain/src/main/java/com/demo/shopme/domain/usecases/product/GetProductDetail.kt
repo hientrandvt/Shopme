@@ -1,7 +1,7 @@
 package com.demo.shopme.domain.usecases.product
 
 import com.demo.shopme.domain.common.Resource
-import com.demo.shopme.domain.model.product.ProductEntity
+import com.demo.shopme.domain.models.product.ProductEntity
 import com.demo.shopme.domain.repositories.ProductRepository
 
 /**

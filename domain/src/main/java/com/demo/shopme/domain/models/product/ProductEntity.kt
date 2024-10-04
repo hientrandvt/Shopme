@@ -1,4 +1,4 @@
-package com.demo.shopme.domain.model.product
+package com.demo.shopme.domain.models.product
 
 /**
  * Created by Tran The Hien on 27,September,2024

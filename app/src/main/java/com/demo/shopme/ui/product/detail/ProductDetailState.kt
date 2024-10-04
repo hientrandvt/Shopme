@@ -1,7 +1,7 @@
 package com.demo.shopme.ui.product.detail
 
 import androidx.compose.ui.graphics.Color
-import com.demo.shopme.domain.model.product.ProductEntity
+import com.demo.shopme.domain.models.product.ProductEntity
 import com.demo.shopme.utils.Constants
 
 /**

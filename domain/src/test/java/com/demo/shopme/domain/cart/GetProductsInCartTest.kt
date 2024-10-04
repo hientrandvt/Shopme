@@ -4,7 +4,7 @@ package com.demo.shopme.domain.cart
  * Created by Tran The Hien on 30,September,2024
  */
 
-import com.demo.shopme.domain.model.product.ProductEntity
+import com.demo.shopme.domain.models.product.ProductEntity
 import com.demo.shopme.domain.repositories.CartRepository
 import com.demo.shopme.domain.usecases.cart.GetProductsInCart
 import kotlinx.coroutines.runBlocking

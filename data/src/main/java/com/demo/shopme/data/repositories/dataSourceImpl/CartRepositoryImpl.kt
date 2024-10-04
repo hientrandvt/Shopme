@@ -4,7 +4,7 @@ import com.demo.shopme.data.db.CartDao
 import com.demo.shopme.data.mappers.Mapper
 import com.demo.shopme.data.mappers.mapToData
 import com.demo.shopme.data.mappers.mapToEntity
-import com.demo.shopme.domain.model.product.ProductEntity
+import com.demo.shopme.domain.models.product.ProductEntity
 import com.demo.shopme.domain.repositories.CartRepository
 import javax.inject.Inject
 
