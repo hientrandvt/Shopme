@@ -1,3 +1,4 @@
+
 ![App Architecture](https://github.com/NileshJarad/SearchImage/raw/master/docs/app_architecture.png)
 <sub>Image taken from [NileshJarad's GitHub](https://github.com/NileshJarad)</sub>
 
@@ -50,3 +51,6 @@
 - Hilt (for Dependency Injection)
 - Retrofit
 - Coroutines
+
+
+![App Screenshot](https://raw.githubusercontent.com/hientrandvt/test/master/Screenshot%202024-10-04%20at%2021.22.14.png)
